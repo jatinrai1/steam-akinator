@@ -1,0 +1,277 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    color: #f8fafc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Container Principale */
+.app-container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Sidebar Personaggi */
+.sidebar {
+    flex: 1;
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    max-height: 520px;
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    font-size: 1.2rem;
+    color: #38bdf8;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #38bdf8;
+    padding-bottom: 8px;
+}
+
+.name-list {
+    list-style: none;
+}
+
+.name-list li {
+    padding: 8px 12px;
+    margin-bottom: 6px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    transition: all 0.2s ease;
+}
+
+.name-list li:hover {
+    background: rgba(56, 189, 248, 0.2);
+    color: #fff;
+    transform: translateX(4px);
+}
+
+/* Card Gioco */
+.game-card {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.game-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Wrapper Fantasma e Fumetto */
+.ghost-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.ghost-container {
+    height: 120px;
+    animation: float 3s infinite ease-in-out;
+}
+
+.ghost {
+    width: 80px;
+    height: 100px;
+    background: #ffffff;
+    border-radius: 40px 40px 0 0;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+}
+
+.ghost::before, .ghost::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border-radius: 50%;
+}
+
+.ghost::before { left: 10px; }
+.ghost::after { right: 10px; }
+
+.eyes {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 44px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.eyes div {
+    width: 12px;
+    height: 12px;
+    background: #0f172a;
+    border-radius: 50%;
+}
+
+.speech-bubble {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px 20px;
+    color: #0f172a;
+    font-size: 1.1rem;
+    font-weight: 600;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 10px 12px 10px;
+    border-style: solid;
+    border-color: transparent transparent #ffffff transparent;
+}
+
+/* Immagine del Risultato */
+.result-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.result-container img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 3px solid #38bdf8;
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.3);
+    transition: transform 0.3s ease;
+}
+
+/* Pulsanti */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+}
+
+.answer-buttons {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.btn-start {
+    background: #38bdf8;
+    color: #0f172a;
+    width: 200px;
+}
+
+.btn-start:hover:not(:disabled) {
+    background: #7dd3fc;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4);
+}
+
+.btn-yes {
+    background: #22c55e;
+    color: #ffffff;
+    min-width: 120px;
+}
+
+.btn-yes:hover:not(:disabled) {
+    background: #4ade80;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(34, 197, 94, 0.4);
+}
+
+.btn-no {
+    background: #ef4444;
+    color: #ffffff;
+    min-width: 120px;
+}
+
+.btn-no:hover:not(:disabled) {
+    background: #f87171;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+}
+
+/* Animazioni */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+}
+
+/* Responsive Design per schermi piccoli */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .sidebar {
+        max-height: 180px;
+    }
+
+    .speech-bubble {
+        font-size: 1rem;
+    }
+}

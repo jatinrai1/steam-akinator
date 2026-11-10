@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steam Who?</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Pannello laterale con l'elenco dei personaggi -->
+        <aside class="sidebar">
+            <h2>Personaggi STEAM</h2>
+            <ul class="name-list">
+                <li>Albert Einstein</li>
+                <li>Marie Curie</li>
+                <li>Nikola Tesla</li>
+                <li>Leonardo da Vinci</li>
+                <li>Ada Lovelace</li>
+                <li>Isaac Newton</li>
+                <li>Steve Jobs</li>
+                <li>Galileo Galilei</li>
+                <li>Hedy Lamarr</li>
+                <li>Pythagoras</li>
+                <li>Alan Turing</li>
+                <li>Johannes Kepler</li>
+                <li>Thomas Edison</li>
+                <li>Stephen Hawking</li>
+                <li>Leonardo Fibonacci</li>
+                <li>Katherine Johnson</li>
+                <li>Maria Goeppert Mayer</li>
+                <li>Barbara McClintock</li>
+                <li>Mary Jackson</li>
+                <li>Lise Meitner</li>
+            </ul>
+        </aside>
+
+        <!-- Area principale del gioco -->
+        <main class="game-card">
+            <h1 class="game-title">Steam Who?</h1>
+            
+            <div class="ghost-wrapper">
+                <div class="ghost-container">
+                    <div class="ghost">
+                        <div class="eyes">
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="speech-bubble">
+                    <p id="question">Pensa a uno dei personaggi della lista e clicca su <strong>Inizia</strong>!</p>
+                </div>
+            </div>
+
+            <!-- Area dell'immagine del risultato -->
+            <div id="result" class="result-container">
+                <img id="characterImage" src="img/question_mark.gif" alt="Indovina il personaggio">
+            </div>
+
+            <!-- Pulsanti di controllo -->
+            <div class="controls">
+                <button id="btnStart" class="btn btn-start" onclick="Inizia()">Inizia Gioco</button>
+                <div class="answer-buttons">
+                    <button id="btnYes" class="btn btn-yes" onclick="risposta(true)" disabled>Sì</button>
+                    <button id="btnNo" class="btn btn-no" onclick="risposta(false)" disabled>No</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
